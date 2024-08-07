@@ -7,11 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox Name="FilePathTextBox" Width="300" Margin="5" ToolTip="Enter file path"/>
-            <TextBox Name="SearchWordTextBox" Width="300" Margin="5" ToolTip="Enter search word"/>
-            <Button Name="StartProcessButton" Content="Start Process" Width="300" Margin="5" Click="StartProcessButton_Click"/>
-            <TextBlock Name="ResultTextBlock" HorizontalAlignment="Center" Margin="5" FontSize="16" TextWrapping="Wrap"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Label Content="Інтервал оновлення (секунди):"/>
+            <TextBox x:Name="UpdateIntervalTextBox" Text="1" Width="50"/>
+            <Button x:Name="UpdateIntervalButton" Content="Оновити інтервал" Click="UpdateIntervalButton_Click"/>
         </StackPanel>
+
+        <ListView x:Name="ProcessListView" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ім'я процесу" DisplayMemberBinding="{Binding ProcessName}"/>
+                    <GridViewColumn Header="Ідентифікатор" DisplayMemberBinding="{Binding Id}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
