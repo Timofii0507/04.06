@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Button Name="StartProcessButton" Content="Start Process" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="StartProcessButton_Click"/>
+        <TextBlock Name="ResultTextBlock" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" FontSize="16"/>
     </Grid>
 </Window>
