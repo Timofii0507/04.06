@@ -3,8 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace system1
-{
+namespace _04._06
     public partial class MainWindow : Window
     {
         public MainWindow()
