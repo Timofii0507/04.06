@@ -7,35 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0">
-            <Label Content="Інтервал оновлення (секунди):"/>
-            <TextBox x:Name="UpdateIntervalTextBox" Text="1" Width="50"/>
-            <Button x:Name="UpdateIntervalButton" Content="Оновити інтервал" Click="UpdateIntervalButton_Click"/>
-        </StackPanel>
-
-        <ListView x:Name="ProcessListView" Grid.Row="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Ім'я процесу" DisplayMemberBinding="{Binding ProcessName}"/>
-                    <GridViewColumn Header="Ідентифікатор" DisplayMemberBinding="{Binding Id}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-        <StackPanel Grid.Row="2" Margin="10">
-            <TextBlock x:Name="ProcessNameTextBlock" Text="Ім'я процесу:"/>
-            <TextBlock x:Name="ProcessIdTextBlock" Text="Ідентифікатор:"/>
-            <TextBlock x:Name="StartTimeTextBlock" Text="Час старту:"/>
-            <TextBlock x:Name="TotalProcessorTimeTextBlock" Text="Загальний час процесора:"/>
-            <TextBlock x:Name="ThreadsCountTextBlock" Text="Кількість потоків:"/>
-            <TextBlock x:Name="InstancesCountTextBlock" Text="Кількість екземплярів:"/>
-            <Button x:Name="TerminateProcessButton" Content="Завершити процес" Click="TerminateProcessButton_Click"/>
-        </StackPanel>
+        <Button x:Name="LaunchNotepad" Content="Запустити Блокнот" Click="LaunchNotepad_Click" Margin="10"/>
+        <Button x:Name="LaunchCalculator" Content="Запустити Калькулятор" Click="LaunchCalculator_Click" Margin="10"/>
+        <Button x:Name="LaunchPaint" Content="Запустити Paint" Click="LaunchPaint_Click" Margin="10"/>
+        <Button x:Name="LaunchCustomApp" Content="Запустити власний додаток" Click="LaunchCustomApp_Click" Margin="10"/>
     </Grid>
 </Window>
