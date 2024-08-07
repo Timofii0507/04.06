@@ -7,8 +7,6 @@ namespace _04._06
 {
     public partial class MainWindow : Window
     {
-        private Process _process;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -16,50 +14,29 @@ namespace _04._06
 
         private void StartProcessButton_Click(object sender, RoutedEventArgs e)
         {
+            string firstNumber = FirstNumberTextBox.Text;
+            string secondNumber = SecondNumberTextBox.Text;
+            string operation = OperationTextBox.Text;
 
-            _process = new Process();
-            _process.StartInfo.FileName = "notepad.exe";
-            _process.Start();
-
-
-            WaitForExitButton.IsEnabled = true;
-            KillProcessButton.IsEnabled = true;
-            ResultTextBlock.Text = string.Empty; 
-        }
-
-        private async void WaitForExitButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (_process != null)
+            if (string.IsNullOrWhiteSpace(firstNumber) || string.IsNullOrWhiteSpace(secondNumber) || string.IsNullOrWhiteSpace(operation))
             {
-
-                await Task.Run(() => _process.WaitForExit());
-
-
-                int exitCode = _process.ExitCode;
-                ResultTextBlock.Text = $"Process exited with code: {exitCode}";
-
-
-                WaitForExitButton.IsEnabled = false;
-                KillProcessButton.IsEnabled = false;
+                ResultTextBlock.Text = "Please enter valid inputs.";
+                return;
             }
-        }
 
-        private void KillProcessButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (_process != null && !_process.HasExited)
-            {
+            Process process = new Process();
+            process.StartInfo.FileName = "ChildProcess.exe";
+            process.StartInfo.Arguments = $"{firstNumber} {secondNumber} {operation}";
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = true;
 
-                _process.Kill();
-                _process.WaitForExit();
+            process.Start();
 
+            string result = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
 
-                int exitCode = _process.ExitCode;
-                ResultTextBlock.Text = $"Process killed with code: {exitCode}";
-
-
-                WaitForExitButton.IsEnabled = false;
-                KillProcessButton.IsEnabled = false;
-            }
+            ResultTextBlock.Text = result;
         }
     }
 }

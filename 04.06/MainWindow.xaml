@@ -7,9 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Name="StartProcessButton" Content="Start Process" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Margin="10" Click="StartProcessButton_Click"/>
-        <Button Name="WaitForExitButton" Content="Wait for Exit" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Margin="10" Click="WaitForExitButton_Click" IsEnabled="False"/>
-        <Button Name="KillProcessButton" Content="Kill Process" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150" Margin="10" Click="KillProcessButton_Click" IsEnabled="False"/>
-        <TextBlock Name="ResultTextBlock" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,10,30" FontSize="16"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Name="FirstNumberTextBox" Width="200" Margin="5" ToolTip="Enter first number"/>
+            <TextBox Name="SecondNumberTextBox" Width="200" Margin="5" ToolTip="Enter second number"/>
+            <TextBox Name="OperationTextBox" Width="200" Margin="5" ToolTip="Enter operation (+, -, *, /)"/>
+            <Button Name="StartProcessButton" Content="Start Process" Width="200" Margin="5" Click="StartProcessButton_Click"/>
+            <TextBlock Name="ResultTextBlock" HorizontalAlignment="Center" Margin="5" FontSize="16"/>
+        </StackPanel>
     </Grid>
 </Window>
