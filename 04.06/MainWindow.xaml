@@ -35,6 +35,7 @@
             <TextBlock x:Name="TotalProcessorTimeTextBlock" Text="Загальний час процесора:"/>
             <TextBlock x:Name="ThreadsCountTextBlock" Text="Кількість потоків:"/>
             <TextBlock x:Name="InstancesCountTextBlock" Text="Кількість екземплярів:"/>
+            <Button x:Name="TerminateProcessButton" Content="Завершити процес" Click="TerminateProcessButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

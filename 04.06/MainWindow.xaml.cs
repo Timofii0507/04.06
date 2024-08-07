@@ -63,5 +63,28 @@ namespace _04._06
                 MessageBox.Show("Неправильний формат інтервалу оновлення.", "Помилка");
             }
         }
+
+        private void TerminateProcessButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProcessListView.SelectedItem is Process selectedProcess)
+            {
+
+                if (MessageBox.Show($"Ви впевнені, що хочете завершити процес '{selectedProcess.ProcessName}'?", "Підтвердження", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        selectedProcess.Kill();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Не вдалося завершити процес: {ex.Message}", "Помилка");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Спочатку виберіть процес у списку.", "Помилка");
+            }
+        }
     }
 }
