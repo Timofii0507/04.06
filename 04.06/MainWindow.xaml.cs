@@ -14,27 +14,30 @@ namespace _04._06
 
         private void StartProcessButton_Click(object sender, RoutedEventArgs e)
         {
-            string firstNumber = FirstNumberTextBox.Text;
-            string secondNumber = SecondNumberTextBox.Text;
-            string operation = OperationTextBox.Text;
+            string filePath = FilePathTextBox.Text;
+            string searchWord = SearchWordTextBox.Text;
 
-            if (string.IsNullOrWhiteSpace(firstNumber) || string.IsNullOrWhiteSpace(secondNumber) || string.IsNullOrWhiteSpace(operation))
+            if (string.IsNullOrWhiteSpace(filePath) || string.IsNullOrWhiteSpace(searchWord))
             {
                 ResultTextBlock.Text = "Please enter valid inputs.";
                 return;
             }
 
+
             Process process = new Process();
             process.StartInfo.FileName = "ChildProcess.exe";
-            process.StartInfo.Arguments = $"{firstNumber} {secondNumber} {operation}";
+            process.StartInfo.Arguments = $"{filePath} {searchWord}";
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
 
+
             process.Start();
+
 
             string result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
+
 
             ResultTextBlock.Text = result;
         }

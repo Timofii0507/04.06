@@ -8,11 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox Name="FirstNumberTextBox" Width="200" Margin="5" ToolTip="Enter first number"/>
-            <TextBox Name="SecondNumberTextBox" Width="200" Margin="5" ToolTip="Enter second number"/>
-            <TextBox Name="OperationTextBox" Width="200" Margin="5" ToolTip="Enter operation (+, -, *, /)"/>
-            <Button Name="StartProcessButton" Content="Start Process" Width="200" Margin="5" Click="StartProcessButton_Click"/>
-            <TextBlock Name="ResultTextBlock" HorizontalAlignment="Center" Margin="5" FontSize="16"/>
+            <TextBox Name="FilePathTextBox" Width="300" Margin="5" ToolTip="Enter file path"/>
+            <TextBox Name="SearchWordTextBox" Width="300" Margin="5" ToolTip="Enter search word"/>
+            <Button Name="StartProcessButton" Content="Start Process" Width="300" Margin="5" Click="StartProcessButton_Click"/>
+            <TextBlock Name="ResultTextBlock" HorizontalAlignment="Center" Margin="5" FontSize="16" TextWrapping="Wrap"/>
         </StackPanel>
     </Grid>
 </Window>
