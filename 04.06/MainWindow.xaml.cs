@@ -24,7 +24,7 @@ namespace _04._06
 
             WaitForExitButton.IsEnabled = true;
             KillProcessButton.IsEnabled = true;
-            ResultTextBlock.Text = string.Empty;
+            ResultTextBlock.Text = string.Empty; 
         }
 
         private async void WaitForExitButton_Click(object sender, RoutedEventArgs e)
